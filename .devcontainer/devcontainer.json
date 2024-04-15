@@ -1,0 +1,34 @@
+{
+    "name": "Python & Flask",
+    // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+    "image": "mcr.microsoft.com/devcontainers/python:3.12-bookworm",
+
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.shell.linux": "/bin/bash",
+                "python.pythonPath": "/usr/local/bin/python",
+                "python.linting.enabled": true,
+                "python.linting.pylintEnabled": true,
+                "python.formatting.autopep8Path": "/usr/local/bin/autopep8",
+                "python.formatting.blackPath": "/usr/local/bin/black",
+                "python.testing.pytestPath": "/usr/local/bin/pytest"
+            },
+            "extensions": [
+                "ms-python.python",
+                "ms-python.vscode-pylance"
+            ]
+        }
+    },
+
+    // Use 'portsAttributes' to set default properties for specific forwarded ports.
+    // More info: https://containers.dev/implementors/json_reference/#port-attributes
+    "portsAttributes": {
+        "5000": {
+            "label": "CalLovesSupabase"
+        }
+    },
+
+    "postCreateCommand": "pip install -r requirements.txt",
+    "postAttachCommand": "python3 listener.py -p 5000"
+}
