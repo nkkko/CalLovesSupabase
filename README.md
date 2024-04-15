@@ -37,16 +37,18 @@ You'll also need to have a Supabase account and API keys.
 1. Create new workspace using Daytona, which will clone the repository:
 
 ```bash
-git clone https://github.com/nkkko/callovessupabase.git
+daytona create -r https://github.com/nkkko/callovessupabase.git
 ```
 
-2. Change to the project directory:
+2. Start your IDE:
 
 ```bash
-cd callovessupabase
+daytona code
 ```
 
-3. Set up your development workspace manually or use the provided `devcontainer.json`:
+You can also select your prefered IDE with `daytona ide`.
+
+3. Set up your development workspace—optionally you can also use the provided `devcontainer.json`:
 
 ```bash
 sudo apt update
@@ -94,7 +96,7 @@ Whenever a webhook event is received from Cal.com, the `handle_cal_com_webhook()
 
 There are no additional configuration options for this project. All the necessary configuration is done through the `.env` file, which should contain your Supabase URL and API key.
 
-## Deployment
+## Deployment —OPTIONAL—
 
 To deploy this application, you can use a production-ready WSGI server, such as Gunicorn or uWSGI. Here's an example of how you can use Gunicorn:
 
